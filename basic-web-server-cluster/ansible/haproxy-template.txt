@@ -1,0 +1,10 @@
+### Inserted by Ansible
+frontend http-frontend
+bind *:yy
+reqadd X-Forwarded-Proto:\ http
+default_backend http-backend
+
+
+backend http-backend
+server web1 a.a.a.a:xx check
+server web2 b.b.b.b:xx  check
