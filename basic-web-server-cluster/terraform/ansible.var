@@ -2,21 +2,11 @@
     "haproxy_fip": {
         "sensitive": false,
         "type": "string",
-        "value": "64.71.151.112"
+        "value": "64.71.151.111"
     },
     "network_name": {
         "sensitive": false,
         "type": "string",
         "value": "test_target_1"
-    },
-    "web1_address": {
-        "sensitive": false,
-        "type": "string",
-        "value": "10.200.200.4"
-    },
-    "web2_address": {
-        "sensitive": false,
-        "type": "string",
-        "value": "10.200.200.6"
     }
 }

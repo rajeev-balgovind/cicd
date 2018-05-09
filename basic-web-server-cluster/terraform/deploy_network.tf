@@ -6,6 +6,7 @@ resource "openstack_networking_subnet_v2" "subnet_1" {
 	name = "test_subnet_1"
 	network_id = "${openstack_networking_network_v2.test_target_network.id}"
 	cidr = "10.200.200.0/24"
+        dns_nameservers = ["8.8.8.8", "8.8.4.4"]
 	ip_version = 4 }
 
 resource "openstack_networking_router_v2" "router_1" {

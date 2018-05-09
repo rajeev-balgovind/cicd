@@ -1,5 +1,41 @@
 ---
 
-- name : Setup HAProxy
+- name: Deploy HA Proxy on given webserver
+  become: True
+  hosts: all
+  tasks:
+    - name: Copy template to tmp folder
+      get_url:
+        url: http://gsb-vm.techadamie.us/haproxy-template.txt
+        dest: /tmp/haproxy-template.txt
+        mode: 0440
+    - name: replace haproxy listener
+      replace:
+        dest: /tmp/haproxy-template.txt
+        regexp: 'yy'
+        replace: "{{ haproxy_listener }}"
 
+    - name: Replace Server Listeners
+      replace:
+        dest: /tmp/haproxy-template.txt
+        regexp: 'xx'
+        replace: "{{ web_listener }}"
+
+    - name: Replace Server 1
+      replace:
+        dest: /tmp/haproxy-template.txt
+        regexp: 'a.a.a.a'
+        replace: "{{ web_01 }}"
+
+    - name: Replace Server 2
+      replace:
+        dest: /tmp/haproxy-template.txt
+        regexp: 'b.b.b.b'
+        replace: "{{ web_02 }}"
+
+    - name: Copy file to haproxy folder and backup original
+      copy:
+        src: /tmp/haproxy-template.txt
+        dest: /
+      
 

@@ -1,0 +1,10 @@
+---
+
+- name: Configure the Load Balancers
+  hosts: all
+  become: True
+  tasks:
+    - name: upload the template file to tmp
+      :wq
+
+

@@ -4,7 +4,7 @@
 resource "openstack_compute_instance_v2" "web-01" {
         name = "web-01"
         image_name = "Ubuntu 16.04"
-        availability_zone = "private"
+#        availability_zone = "private"
         flavor_name = "m1.large"
         key_pair = "${var.openstack_keypair}"
         security_groups = ["default"]
@@ -17,7 +17,7 @@ resource "openstack_compute_instance_v2" "web-01" {
 resource "openstack_compute_instance_v2" "web-02" {
         name = "web-02"
         image_name = "Ubuntu 16.04"
-        availability_zone = "private"
+#        availability_zone = "private"
         flavor_name = "m1.large"
         key_pair = "${var.openstack_keypair}"
         security_groups = ["default"]
